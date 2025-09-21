@@ -12,7 +12,7 @@ optdepends=()
 backup=()
 options=()
 install=
-source=(${pkgname}::"git+file://${PWD}")
+source=("${pkgname}::${PWD}")
 
 package() {
     cd "$srcdir/$pkgname"
