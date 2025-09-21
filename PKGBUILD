@@ -13,20 +13,17 @@ backup=()
 options=()
 install=
 source=(${pkgname}::"git+file://${PWD}")
-md5sums=('f6c483a91e5e01b7c1913988f5791c1b' 'SKIP')
 
 package() {
-    cd "$srcdir"
-    export DAS_SCRIPT_DIST="${pkgdir}/opt/resolve/Fusion/Scripts/Utility"
-    export DAS_ALAC_CONVERTER_DIST="${pkgdir}/usr/bin"
+    cd "$srcdir/$pkgname"
+
+    local DAS_SCRIPT_DIST="${pkgdir}/opt/resolve/Fusion/Scripts/Utility"
+    local DAS_ALAC_CONVERTER_DIST="${pkgdir}/usr/bin"
+    local AAC2ALACBIN="${DAS_ALAC_CONVERTER_DIST}/aac2alac"
 
     mkdir -p "${DAS_SCRIPT_DIST}"
-    mkdir -p "${DAS_ALAC_CONVERTER_DISTDAS_SCRIPT_DIST}"
+    mkdir -p "${DAS_ALAC_CONVERTER_DIST}"
 
-    export AAC2ALACBIN="${DAS_ALAC_CONVERTER_DISTDAS_SCRIPT_DIST}/aac2alac"
-
-    install -Dm644 "$srcdir/${pkgname}/convert_aac_to_alac.py" -t "${DAS_SCRIPT_DIST}/convert_aac_to_alac.py"
-    install -Dm644 "$srcdir/${pkgname}/aac2alac.py" -t "${AAC2ALACBIN}"
-
-    chmod +x "${AAC2ALACBIN}"
+    install -Dm644 convert_aac_to_alac.py "${DAS_SCRIPT_DIST}/convert_aac_to_alac.py"
+    install -Dm755 aac2alac.py "${AAC2ALACBIN}"
 }
