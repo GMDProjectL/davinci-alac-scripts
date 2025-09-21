@@ -13,6 +13,7 @@ backup=()
 options=()
 install=
 source=(${pkgname}::"git+file://${PWD}")
+md5sums=('SKIP')
 
 package() {
     cd "$srcdir/$pkgname"
