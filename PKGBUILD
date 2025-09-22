@@ -1,3 +1,5 @@
+# Maintainer: Andrew Relative <kezin636 at gmail dot com>
+#
 pkgname=davinci-alac-scripts
 pkgver=1.0
 pkgrel=1
