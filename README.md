@@ -12,3 +12,11 @@ git clone https://github.com/GMDProjectL/davinci-alac-scripts
 cd davinci-alac-scripts
 makepkg -sfi
 ```
+
+## Generic installation
+
+```bash
+git clone https://github.com/GMDProjectL/davinci-alac-scripts
+cd davinci-alac-scripts
+./universal_install.sh
+```
